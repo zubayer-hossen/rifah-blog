@@ -26,7 +26,7 @@ app.use(
     origin: (origin, callback) => {
       // In development, allow any localhost/127.0.0.1 port so a Vite port
       // change never silently breaks every request with a CORS error.
-      const allowedOrigin = process.env.CLIENT_URL || "http://localhost:5173";
+      const allowedOrigin = process.env.CLIENT_URL || "https://rifahtasfiya.netlify.app";
       const isLocalDev =
         process.env.NODE_ENV !== "production" && (!origin || /^https?:\/\/(localhost|127\.0\.0\.1):\d+$/.test(origin));
       if (!origin || origin === allowedOrigin || isLocalDev) {
