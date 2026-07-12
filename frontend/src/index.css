@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-cream text-plum font-body antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+  ::selection {
+    @apply bg-blush-light text-plum;
+  }
+  /* visible keyboard focus for accessibility */
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+    outline: 3px solid #A78BFA;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-blush px-6 py-3 font-body font-semibold text-white shadow-soft transition-transform duration-200 hover:scale-105 hover:bg-blush-dark active:scale-95;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-lavender px-6 py-3 font-body font-semibold text-lavender transition-all duration-200 hover:bg-lavender hover:text-white active:scale-95;
+  }
+  .card {
+    @apply rounded-3xl bg-white/80 backdrop-blur-sm shadow-soft;
+  }
+  .section-title {
+    @apply text-3xl sm:text-4xl font-display italic text-plum text-center;
+  }
+  .input-field {
+    @apply w-full rounded-2xl border border-blush-light bg-white px-4 py-3 font-body text-plum placeholder:text-plum/40 focus:border-blush outline-none transition-colors;
+  }
+}
+
+/* Quill editor content rendering (blog body) */
+.blog-content h1, .blog-content h2, .blog-content h3 { @apply font-display italic mt-6 mb-3; }
+.blog-content p { @apply mb-4 leading-relaxed; }
+.blog-content img { @apply rounded-2xl my-4; }
+.blog-content a { @apply text-blush underline; }
+.blog-content blockquote { @apply border-l-4 border-lavender pl-4 italic text-plum/80 my-4; }
